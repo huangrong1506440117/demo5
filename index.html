@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="百度换肤，一键换肤">
+    <meta name="decsription" content="百度一键换肤">
+    <title>百度一键换肤</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            background-image: url("images/1.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .img-list{
+            width:100%;
+            height:200px;;
+            background-color: rgba(0,0,0,0.6);
+        }
+        ul{
+            display: flex;/*弹性盒模型 使内部横排显示*/
+            justify-content: space-around;/*左右均分*/
+            align-items: center;/*上下均分*/
+            list-style: none;
+            height: 200px;
+        }
+        img{
+            height: 100px
+        }
+        .btn{
+            position: absolute;
+            right: 0;
+            top:0;
+            width: 50px;
+            height: 50px;
+            background-image: url("images/upseek.png");
+        }
+        .btn:hover{
+            background-position-y: -64px;
+        }
+    </style>
+</head>
+<body>
+    <div class="img-list">
+        <ul>
+            <li data-src="images/1.jpg">
+                <img src="images/1-1.jpg">
+            </li>
+            <li data-src="images/2.jpg">
+                <img src="images/2-2.jpg">
+            </li>
+            <li data-src="images/3.jpg">
+                <img src="images/3-3.jpg">
+            </li>
+            <li data-src="images/4.jpg">
+                <img src="images/4-4.jpg">
+            </li>
+            <li data-src="images/5.jpg">
+                <img src="images/5-5.jpg">
+            </li>
+        </ul>
+    </div>
+    <div class="btn">
+        
+    </div>
+</body>
+<script src="js/jquery.js"></script>
+<script>
+    $(".btn").click(function(){
+        $(".img-list").slideToggle();
+    });
+
+    $("li").click(function(){
+        var src=$(this).attr("data-src");
+        $("body").css({
+            "background-image":"url("+src+")"
+        })
+    });
+</script>
+</html>
